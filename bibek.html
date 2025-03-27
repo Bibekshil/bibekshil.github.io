@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="bibek.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="bibek.png" alt="Site Logo" class="logo-img">
+                <span>Sun</span>
+            </div>
+        </div>
+        
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="logo.html">About</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <button class="login-btn" onclick="location.href='bibek.html'">Login</button>
+            <button class="edit-btn">Edit</button>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="form-container">
+            <form>
+                <input type="text" name="name" placeholder="Your name" required>
+                <input type="email" name="email" placeholder="Your email" required>
+                <input type="password" name="password" placeholder="Your password" required>
+                <input type="text" name="school" placeholder="Your school name">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="bibek.js" defer></script>
+</body>
+</html>

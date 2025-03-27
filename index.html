@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet</title>
+    <link rel="stylesheet" href="bibek.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="bibek.png" alt="Site Logo" class="logo-img">
+                <span>Sun</span>
+            </div>
+        </div>
+        
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <button class="login-btn" onclick="location.href='bibek.html'">Login</button>
+            <button class="edit-btn">Edit</button>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="code-container">
+            <div class="code-header">
+                <input type="text" class="edit-input" value="edit code" placeholder="Edit title">
+                <button class="copy-button">
+                    Copy
+                </button>
+            </div>
+            <pre class="code-block">
+                <code class="code">
+&lt;!DOCTYPE html&gt; 
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;My First Webpage&lt;/title&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src="script.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code>
+            </pre>
+        </div>
+        
+        <div class="calculator-container">
+             <h2 class="section-title">Calculator Example</h2>
+            <div class="code-header">
+
+           
+    <input type="text" class="edit-input" value="edit code" placeholder="Edit title">
+    <button class="copy-button" onclick="copyCode(this)">
+        Copy
+    </button>
+</div>
+            <pre class="code-block">
+
+                <code class="code calculator-code">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Advanced Calculator&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background: #e3f9ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calculator {
+            background: #3a4452;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), 
+                       -10px -10px 20px rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* ... (rest of calculator CSS) ... */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="calculator"&gt;
+            &lt;form name="calc"&gt;
+                &lt;div class="display"&gt;
+                    &lt;input type="text" name="display" id="display" readonly&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;input type="button" value="AC" onclick="clearDisplay()" class="operator clear"&gt;
+                    &lt;input type="button" value="DEL" onclick="deleteLast()" class="operator delete"&gt;
+                    &lt;input type="button" value="." onclick="appendValue('.')" class="operator"&gt;
+                    &lt;input type="button" value="/" onclick="appendValue('/')" class="operator"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;input type="button" value="7" onclick="appendValue('7')"&gt;
+                    &lt;input type="button" value="8" onclick="appendValue('8')"&gt;
+                    &lt;input type="button" value="9" onclick="appendValue('9')"&gt;
+                    &lt;input type="button" value="*" onclick="appendValue('*')" class="operator"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;input type="button" value="4" onclick="appendValue('4')"&gt;
+                    &lt;input type="button" value="5" onclick="appendValue('5')"&gt;
+                    &lt;input type="button" value="6" onclick="appendValue('6')"&gt;
+                    &lt;input type="button" value="-" onclick="appendValue('-')" class="operator"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;input type="button" value="1" onclick="appendValue('1')"&gt;
+                    &lt;input type="button" value="2" onclick="appendValue('2')"&gt;
+                    &lt;input type="button" value="3" onclick="appendValue('3')"&gt;
+                    &lt;input type="button" value="+" onclick="appendValue('+')" class="operator"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;input type="button" value="00" onclick="appendValue('00')"&gt;
+                    &lt;input type="button" value="0" onclick="appendValue('0')"&gt;
+                    &lt;input type="button" value="=" onclick="calculateResult()" class="equal"&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;div class="deepseek-link"&gt;
+            &lt;a href="https://www.deepseek.com" target="_blank"&gt;Visit Deepseek&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Calculator JavaScript functions
+        function appendValue(val) {
+            document.getElementById("display").value += val;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function deleteLast() {
+            let display = document.getElementById("display");
+            display.value = display.value.toString().slice(0, -1);
+        }
+
+        function calculateResult() {
+            try {
+                let expression = document.getElementById("display").value;
+                expression = expression.replace(/×/g, '*').replace(/÷/g, '/');
+                let result = eval(expression);
+                if (isNaN(result) || !isFinite(result)) {
+                    throw "Invalid calculation";
+                }
+                document.getElementById("display").value = result;
+            } catch (e) {
+                document.getElementById("display").value = "Error";
+                setTimeout(clearDisplay, 1000);
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            const display = document.getElementById("display");
+            
+            if (/[0-9+\-*/.=]/.test(key)) {
+                event.preventDefault();
+                if (key === '=' || key === 'Enter') {
+                    calculateResult();
+                } else {
+                    appendValue(key);
+                }
+            } else if (key === 'Backspace') {
+                event.preventDefault();
+                deleteLast();
+            } else if (key === 'Escape') {
+                event.preventDefault();
+                clearDisplay();
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script src="bibek.js" defer></script>
+</body>
+</html>
