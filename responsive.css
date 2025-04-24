@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+* {
+    font-family: AaLl;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    background-color: black;
+    color: #00ff08;
+}
+
+div {
+    padding: 15px;
+    border: 2px solid #00ff08;
+    background-color: black;
+  
+    margin: 10px 0;
+}
+div>h1{
+    text-align: center;
+}
+
+.rrr {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: black;
+    padding: 1rem;
+    border-bottom: 2px solid #00ff08;
+}
+
+.rrr nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.rrr nav ul li a {
+    color: #00ff08;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.rrr nav ul li a:hover {
+    background-color: #003300;
+    border: 1px solid #00ff08;
+    border-radius: 4px;
+}
+
+.rrr nav ul li a.active {
+    background-color: #002200;
+    border: 1px solid #00ff08;
+    border-radius: 4px;
+}
+
+.example {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+pre {
+    background-color: #111;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+code {
+    color: #00ff08;
+    font-family: 'Courier New', monospace;
+}
+
+.about-section {
+    padding: 3rem 1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    color: #00ff08;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.about-section .intro {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-content h2 {
+    color: #00cc00;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.about-content ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .rrr nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .about-section {
+        padding: 2rem 1rem;
+    }
+}
+/* Contact Page Styles */
+.contact-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 2px solid #00ff08;
+}
+
+.contact-section h1 {
+    color: #00ff08;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    background-color: #111;
+    border: 1px solid #00ff08;
+    color: #00ff08;
+    font-family: 'Courier New', monospace;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #003300;
+    color: #00ff08;
+    border: 1px solid #00ff08;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #00ff08;
+    color: #000;
+}
+button{
+    color: #00ff08;
+    background-color: black;
+    height: 30px;
+    width: 30vw;
+    border-radius: 16px;
+}
+    .ro{
+           background-color: black;
+          color: #00ff08;
+         }
+         .or:hover{
+            background-color: #00ff08;
+            color: black;
+           
+         }
+.ex {
+    max-width: 800px;
+    height: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    overflow: auto;
+}
+ /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #00ff08;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00cc06;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .submit-btn, .view-messages-btn {
+                width: 100%;
+            }
+        }

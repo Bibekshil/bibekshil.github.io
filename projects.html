@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+     <link rel="icon" type="image/x-icon" href="plex.png">
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7867993252068161"
+     crossorigin="anonymous"></script>
+    <style type="text/css">
+        /* ===== BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    background-color: #121212;
+    color: #00ff08;
+    line-height: 1.6;
+}
+
+/* ===== NAVIGATION ===== */
+.rrr {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #121212;
+    padding: 1rem;
+    border-bottom: 2px solid #00ff08;
+}
+
+.rrr nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+/* Add these to your existing styles.css */
+.error {
+    border-color: #ff0000 !important;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    color: #00ff08;
+}
+
+.error-message {
+    display: block;
+    padding: 1rem;
+    background-color: #330000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.rrr nav ul li a {
+    color: #00ff08;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+}
+
+.rrr nav ul li a:hover {
+    background-color: #003300;
+    border: 1px solid #00ff08;
+}
+
+/* ===== BUTTONS ===== */
+.action-btn {
+    padding: 0.5rem 1rem;
+    background-color: #003300;
+    color: #00ff08;
+    border: 1px solid #00ff08;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.action-btn:hover {
+    background-color: #00ff08;
+    color: #000;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-section h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #00ff08;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.contact-section p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ===== FORM STYLES ===== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    background-color: #252525;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #00ff08;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00ff08;
+    box-shadow: 0 0 0 2px rgba(0, 255, 8, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    padding: 0.8rem;
+    background-color: #003300;
+    color: #00ff08;
+    border: 1px solid #00ff08;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #00ff08;
+    color: #000;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+.success-message {
+    display: none;
+    padding: 1rem;
+    background-color: #003300;
+    color: #00ff08;
+    border: 1px solid #00ff08;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 768px) {
+    .rrr nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .contact-section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="cyber-header">
+        <nav class="cyber-nav">
+            <ul>
+                <li><a href="index.html">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    Home
+                </a></li>
+                <li><a href="about.html">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    About
+                </a></li>
+                <li><a href="contact.html">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                    </svg>
+                    Code
+                </a></li>
+                <li><a href="projects.html" class="action-btn" style="color: black;">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    View Examples
+     
+               </a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contact-section">
+        <h1>Contact Us</h1>
+        <p>Have questions or feedback? Send us a message!</p>
+        
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+            
+            <div class="success-message" id="successMessage">
+                Your message has been sent successfully! We'll get back to you soon.
+            </div>
+        </form>
+    </div>
+
+    <script >
+        // script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const charCounter = document.createElement('div');
+    charCounter.className = 'char-counter';
+    messageInput.parentNode.appendChild(charCounter);
+
+    // Initialize character counter
+    updateCharCounter();
+
+    // Form submission handler
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            return;
+        }
+
+        // Simulate form submission (replace with actual fetch in production)
+        const isSuccess = await simulateFormSubmission();
+        
+        if (isSuccess) {
+            showSuccessMessage();
+            contactForm.reset();
+            updateCharCounter();
+        } else {
+            showErrorMessage();
+        }
+    });
+
+    // Email validation
+    emailInput.addEventListener('blur', validateEmail);
+    emailInput.addEventListener('input', clearEmailError);
+
+    // Message character counter
+    messageInput.addEventListener('input', function() {
+        updateCharCounter();
+        validateMessageLength();
+    });
+
+    // Functions
+    function validateForm() {
+        const isValidEmail = validateEmail();
+        const isValidMessage = validateMessageLength();
+        
+        return isValidEmail && isValidMessage;
+    }
+
+    function validateEmail() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isValid = emailRegex.test(emailInput.value);
+        
+        if (!isValid && emailInput.value) {
+            emailInput.classList.add('error');
+            showFieldError(emailInput, 'Please enter a valid email address');
+            return false;
+        }
+        
+        emailInput.classList.remove('error');
+        clearFieldError(emailInput);
+        return true;
+    }
+
+    function validateMessageLength() {
+        const maxLength = 500;
+        const currentLength = messageInput.value.length;
+        const isValid = currentLength <= maxLength;
+        
+        if (!isValid) {
+            messageInput.classList.add('error');
+            showFieldError(messageInput, `Message too long (${currentLength}/${maxLength} chars)`);
+            return false;
+        }
+        
+        messageInput.classList.remove('error');
+        clearFieldError(messageInput);
+        return true;
+    }
+
+    function updateCharCounter() {
+        const currentLength = messageInput.value.length;
+        const maxLength = 500;
+        charCounter.textContent = `${currentLength}/${maxLength}`;
+        charCounter.style.color = currentLength > maxLength ? '#ff0000' : '#00ff08';
+    }
+
+    function showFieldError(inputElement, message) {
+        let errorElement = inputElement.nextElementSibling;
+        
+        if (!errorElement || !errorElement.classList.contains('error-message')) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
+        }
+        
+        errorElement.textContent = message;
+    }
+
+    function clearFieldError(inputElement) {
+        const errorElement = inputElement.nextElementSibling;
+        if (errorElement && errorElement.classList.contains('error-message')) {
+            errorElement.remove();
+        }
+    }
+
+    function clearEmailError() {
+        emailInput.classList.remove('error');
+        clearFieldError(emailInput);
+    }
+
+    async function simulateFormSubmission() {
+        // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // In a real app, you would use fetch() to send data to your server
+        // Example:
+        /*
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: document.getElementById('name').value,
+                    email: emailInput.value,
+                    subject: document.getElementById('subject').value,
+                    message: messageInput.value
+                })
+            });
+            return response.ok;
+        } catch (error) {
+            console.error('Error:', error);
+            return false;
+        }
+        */
+        
+        // For demo purposes, we'll randomly fail 10% of the time
+        return Math.random() > 0.1;
+    }
+
+    function showSuccessMessage() {
+        successMessage.textContent = 'Your message has been sent successfully! We\'ll get back to you soon.';
+        successMessage.style.display = 'block';
+        successMessage.className = 'success-message';
+        
+        // Hide after 5 seconds
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 5000);
+    }
+
+    function showErrorMessage() {
+        successMessage.textContent = 'Failed to send message. Please try again later.';
+        successMessage.style.display = 'block';
+        successMessage.className = 'error-message';
+        
+        // Hide after 5 seconds
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 5000);
+    }
+
+    // Cyberpunk console greeting
+    console.log(
+        '%c⚡ CYBERPUNK CONTACT SYSTEM ⚡\n%cReady to transmit encrypted messages...',
+        'color: #00ff08; font-family: "Courier New"; font-size: 16px; font-weight: bold;',
+        'color: #00e1ff; font-family: "Courier New";'
+    );
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Storage System</title>
+    <link rel="icon" type="image/x-icon" href="plex.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7867993252068161"
+     crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: #00ff08;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        
+        textarea {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #00ff08;
+            box-shadow: 0 0 0 2px rgba(0, 255, 8, 0.2);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .submit-btn, .view-messages-btn {
+            background-color: #002200;
+            color: #00ff08;
+            border: 1px solid #00ff08;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover, .view-messages-btn:hover {
+            background-color: #00ff08;
+            color: #000;
+        }
+        
+        .submit-btn:active, .view-messages-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .stored-messages {
+            background-color: #1e1e1e;
+            border: 1px solid #00ff08;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            max-height: 500px;
+            overflow-y: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .message-item {
+            background-color: #252525;
+            border-left: 3px solid #00ff08;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+            position: relative;
+        }
+        
+        .message-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .message-number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: #00ff08;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .message-date {
+            color: #00ff08;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 20px;
+        }
+        
+        .message-content {
+            white-space: pre-wrap;
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+        
+        .copy-btn {
+            background-color: #002233;
+            color: #00aaff;
+            border: 1px solid #00aaff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.7em;
+        }
+        
+        .copy-btn:hover {
+            background-color: #00aaff;
+            color: #000;
+        }
+        
+        .no-messages {
+            text-align: center;
+            color: #777;
+            padding: 20px;
+            font-style: italic;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #00ff08;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00cc06;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .submit-btn, .view-messages-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cyber-header">
+        <nav class="cyber-nav">
+            <ul>
+                <li><a href="index.html">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    Home
+                </a></li>
+                <li><a href="about.html">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    About
+                </a></li>
+                <li><a href="contact.html">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                    </svg>
+                    Code
+                </a></li>
+                <li><a href="projects.html" class="action-btn" style="color: black;">
+                    <svg class="card-icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    View Examples
+     
+               </a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Code Storage System</h1>
+        
+        <div>
+            <label for="message" style="color: #00ff08; font-size: 18px; margin-bottom: 10px; display: block;">Code:</label>
+            <textarea id="message" name="message" rows="10" placeholder="Enter your JavaScript code here..." required></textarea>
+        </div>
+        
+        <div class="button-group">
+            <button type="button" class="submit-btn" id="sendBtn">Executes Code</button>
+            <button type="button" class="submit-btn" id="storeBtn"> send and Store Code</button>
+            <button type="button" class="view-messages-btn" id="viewBtn">View all Stored Code</button>
+            <!-- <button type="button" class="submit-btn" id="clearBtn" style="background-color: #330000; color: #ff4444; border-color: #ff4444;">Clear All</button>
+        </div> -->
+        
+        <div id="messagesContainer" class="stored-messages" style="display: none;">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #00ff08;">Stored Code Snippets</h2>
+            <div id="messagesList"></div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const messageInput = document.getElementById('message');
+        const sendBtn = document.getElementById('sendBtn');
+        const storeBtn = document.getElementById('storeBtn');
+        const viewBtn = document.getElementById('viewBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const messagesContainer = document.getElementById('messagesContainer');
+        const messagesList = document.getElementById('messagesList');
+
+        // Event Listeners
+        sendBtn.addEventListener('click', executeCode);
+        storeBtn.addEventListener('click', storeCode);
+        viewBtn.addEventListener('click', toggleMessagesView);
+        clearBtn.addEventListener('click', clearAllMessages);
+
+        // Execute JavaScript code
+        function executeCode() {
+            const code = messageInput.value.trim();
+            
+            if (code) {
+                try {
+                    // Use eval for demonstration (be cautious in production)
+                    const result = eval(code);
+                    alert(`Code executed successfully! Result: ${result}`);
+                } catch (error) {
+                    alert(`Error executing code: ${error.message}`);
+                }
+            } else {
+                alert('Please enter some JavaScript code to execute.');
+            }
+        }
+
+        // Store code snippet
+        function storeCode() {
+            const code = messageInput.value.trim();
+            
+            if (code) {
+                storeMessage(code);
+                alert('Code stored successfully!');
+                messageInput.value = '';
+                
+                // Refresh the view if it's open
+                if (messagesContainer.style.display === 'block') {
+                    displayStoredMessages();
+                }
+            } else {
+                alert('Please enter some JavaScript code to store.');
+            }
+        }
+
+        // Toggle messages view
+        function toggleMessagesView() {
+            if (messagesContainer.style.display === 'none') {
+                displayStoredMessages();
+                messagesContainer.style.display = 'block';
+                viewBtn.textContent = 'Hide Stored Code';
+            } else {
+                messagesContainer.style.display = 'none';
+                viewBtn.textContent = 'View Stored Code';
+            }
+        }
+
+        // Clear all messages
+        function clearAllMessages() {
+            if (confirm('Are you sure you want to delete ALL stored code snippets?')) {
+                localStorage.removeItem('jsMessages');
+                messagesList.innerHTML = '<p class="no-messages">No code snippets stored yet.</p>';
+                if (messagesContainer.style.display === 'block') {
+                    messagesContainer.style.display = 'none';
+                    viewBtn.textContent = 'View Stored Code';
+                }
+            }
+        }
+
+        // Store message in localStorage
+        function storeMessage(code) {
+            let messages = JSON.parse(localStorage.getItem('jsMessages')) || [];
+            
+            messages.push({
+                content: code,
+                timestamp: new Date().toISOString()
+            });
+            
+            localStorage.setItem('jsMessages', JSON.stringify(messages));
+        }
+
+        // Display stored messages
+        function displayStoredMessages() {
+            const messages = getStoredMessages();
+            
+            messagesList.innerHTML = '';
+            
+            if (messages.length === 0) {
+                messagesList.innerHTML = '<p class="no-messages">No code snippets stored yet.</p>';
+                return;
+            }
+            
+            // Display in reverse order (newest first)
+            messages.reverse().forEach((msg, index) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message-item';
+                
+                // Add number indicator
+                const numberSpan = document.createElement('span');
+                numberSpan.className = 'message-number';
+                numberSpan.textContent = `${index + 1}.`;
+                messageDiv.appendChild(numberSpan);
+                
+                const datePara = document.createElement('p');
+                datePara.className = 'message-date';
+                datePara.innerHTML = `
+                    <span>${new Date(msg.timestamp).toLocaleString()}</span>
+                    <button class="copy-btn" data-code="${escapeHtml(msg.content)}">Copy</button>
+                `;
+                
+                const contentPre = document.createElement('pre');
+                contentPre.className = 'message-content';
+                contentPre.textContent = msg.content;
+                
+                messageDiv.appendChild(datePara);
+                messageDiv.appendChild(contentPre);
+                messagesList.appendChild(messageDiv);
+            });
+            
+            // Add event listeners to copy buttons
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const code = this.getAttribute('data-code');
+                    copyToClipboard(code);
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                });
+            });
+        }
+
+        // Copy text to clipboard
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Get all stored messages
+        function getStoredMessages() {
+            return JSON.parse(localStorage.getItem('jsMessages')) || [];
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there are messages and show the container if needed
+            if (getStoredMessages().length > 0) {
+                displayStoredMessages();
+                messagesContainer.style.display = 'block';
+                viewBtn.textContent = 'Hide Stored Code';
+            }
+        });
+    </script>
+</body>
+</html>
